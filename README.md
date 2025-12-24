@@ -1,3 +1,3 @@
 # Sentiment-Analysis-using-Flask
-same
+I will be using Vader Sentiment library for the models coz its free hehehehehe
  
