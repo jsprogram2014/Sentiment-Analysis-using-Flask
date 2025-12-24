@@ -14,7 +14,7 @@ def sent_analyzer():
     text_to_be_analysed=request.args['textToAnalyze']
     text_to_be_sent= sentiment_analyzer(text_to_be_analysed)['label']
 
-    return text_to_be_sent
+    return f'The given text is {text_to_be_sent}'
     
 
 
