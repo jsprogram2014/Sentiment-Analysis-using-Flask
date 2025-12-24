@@ -27,7 +27,8 @@ def sentiment_analyzer(text_to_analyse):
     else:
         label= 'neutral'
 
-    return {'label':label,'score':score['compound'] }
+    # return {'label':label,'score':score['compound'] }
+    return {'label':label}
     
 
 # response=sentiment_analyzer(input("Enter ur phrase : "))
