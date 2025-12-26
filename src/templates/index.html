@@ -1,32 +1,125 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <script src="./static/mywebscript.js"></script>
+
     <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .card {
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .card-body {
+            padding: 3rem !important;
+        }
+
         .center-heading {
-            text-align: center;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Switched to textarea for better writing experience */
+        textarea.form-control {
+            border-radius: 10px;
+            border: 2px solid #eee;
+            padding: 15px;
+            resize: none; /* Prevents user from breaking layout */
+            transition: all 0.3s ease;
+            height: 120px;
+        }
+
+        textarea.form-control:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 0 0.2rem rgba(118, 75, 162, 0.25);
+        }
+
+        .btn-custom {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: transform 0.2s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+            color: white;
+        }
+
+        .result-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid #764ba2;
+            border-radius: 5px;
+            padding: 20px;
+            min-height: 60px;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #444;
         }
     </style>
 </head>
 <body>
+
     <div class="card">
         <div class="card-body">
-            <h1 class="center-heading">NLP - Sentiment Analysis using vaderSynthesizer</h1> 
-            <div style="padding: 25px 25px 25px 25px;">
-            <h2 class="mb-3">
-                <label class="form-label">Please enter the text to be analyzed</label>
-                <input type="textarea" class="form-control" id="textToAnalyze">
-            </h2>
-
-            <div style="padding: 25px 25px 25px 25px;">
-                <button onclick="RunSentimentAnalysis()" class="btn btn-secondary">Run Sentiment Analysis</button>
+            <h1 class="center-heading">AI Sentiment Analyzer</h1> 
+            
+            <div class="form-group">
+                <label class="form-label">Enter text to analyze:</label>
+                <textarea class="form-control" id="textToAnalyze" placeholder="Type something here... e.g., 'I am so happy with this service!'"></textarea>
             </div>
-            <div style="padding: 25px 25px 25px 25px;"></div>
-            <h2 class="mb-3">
-                <label class="form-label">Result of Sentiment Analysis</label>
-            </h2>
 
-            <div id="system_response" style="padding: 25px 25px 25px 25px;"></div>
+            <div class="text-center">
+                <button onclick="RunSentimentAnalysis()" class="btn btn-custom">Analyze Sentiment</button>
+            </div>
+
+            <hr style="margin: 40px 0; opacity: 0.2;">
+
+            <div>
+                <label class="form-label">Analysis Result:</label>
+                <div id="system_response" class="result-box">
+                    <span style="color: #999; font-style: italic; font-size: 0.9rem;">Results will appear here...</span>
+                </div>
+            </div>
         </div>
     </div>
+
 </body>
+</html>
